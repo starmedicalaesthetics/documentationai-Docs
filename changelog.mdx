@@ -1,0 +1,119 @@
+---
+title: Changelog
+description: Track the latest updates, new features, and improvements in Star Medical Wellness.
+---
+
+## Recent Updates
+
+Star Medical Wellness releases updates regularly to enhance your experience with integrative root-cause medicine tools for weight loss, labs, hormones, and aesthetics. You can find detailed release notes below, organized by version.
+
+<Callout kind="info">
+  Subscribe to our newsletter or follow us on social media to get notified about new releases automatically.
+</Callout>
+
+<Update label="2024-10-15" description="v1.3.0" tags={["feature", "improvement"]}>
+## New Features
+
+- Added comprehensive hormone tracking dashboard with customizable charts for estrogen, testosterone, and thyroid levels.
+- Introduced lab result upload feature supporting PDF and CSV formats for seamless integration with your wellness data.
+
+## Improvements
+
+- Enhanced weight loss progress visualizations with predictive analytics based on root-cause factors.
+- Optimized mobile responsiveness for aesthetics treatment scheduling, reducing load times by 40%.
+
+## Bug Fixes
+
+- Fixed intermittent sync issues with external lab APIs.
+- Resolved UI glitches in patient profile editing on tablet devices.
+</Update>
+
+<Update label="2024-09-20" description="v1.2.0" tags={["bugfix", "security"]}>
+## Security Updates
+
+- Implemented OAuth 2.0 refresh token rotation to strengthen session security.
+- Added rate limiting to API endpoints to prevent abuse.
+
+## Bug Fixes
+
+- Corrected data export errors for hormone panel reports.
+- Patched validation issues in custom treatment plan forms.
+
+## Performance Enhancements
+
+- Cached frequently accessed lab reference ranges, improving dashboard load speeds by 25%.
+</Update>
+
+<Update label="2024-08-10" description="v1.1.0" tags={["feature", "breaking"]}>
+## New Features
+
+- Launched initial aesthetics module with booking for Botox, fillers, and skin rejuvenation.
+- Integrated root-cause analysis tool for weight loss consultations using AI-driven insights.
+
+## Breaking Changes
+
+- Updated API version to `v2` for patient data endpoints. Migrate your integrations using the new schema.
+
+## Other Changes
+
+- Added multi-language support for English and Spanish in patient portals.
+</Update>
+
+## Upcoming Roadmap
+
+Explore what's coming next to help you plan your integrations and feature adoption.
+
+<Columns cols={2}>
+  <Card title="Q4 2024: Advanced Analytics" icon="bar-chart-3" href="/docs/analytics">
+    Real-time AI predictions for hormone optimization and personalized weight loss plans.
+  </Card>
+  <Card title="Q1 2025: Telemedicine Integration" icon="video" href="/docs/telemedicine">
+    Secure video consultations with EHR syncing for labs and treatments.
+  </Card>
+  <Card title="Q2 2025: Community Features" icon="users" href="/docs/community">
+    Patient forums and provider collaboration tools for shared case studies.
+  </Card>
+  <Card title="Ongoing: Mobile App" icon="smartphone" href="/docs/mobile">
+    Native iOS and Android apps for on-the-go wellness tracking.
+  </Card>
+</Columns>
+
+## How to Upgrade
+
+Follow these steps to update your Star Medical Wellness instance safely.
+
+<Steps>
+  <Step title="Backup Your Data" icon="database">
+    Export all patient labs, hormone data, and treatment plans.
+
+````bash
+# Example backup command
+starwellness backup --output=/path/to/backup.zip
+````
+  </Step>
+  <Step title="Update Package" icon="download">
+    Install the latest version via your package manager.
+
+````bash
+npm install star-medical-wellness@latest
+# or
+pip install star-medical-wellness==1.3.0
+````
+  </Step>
+  <Step title="Run Migrations" icon="settings">
+    Apply database schema changes.
+
+````bash
+starwellness migrate
+````
+
+    Review the changelog for breaking changes before proceeding.
+  </Step>
+  <Step title="Test Integrations" icon="check-circle">
+    Verify API endpoints and third-party lab syncs work as expected.
+  </Step>
+</Steps>
+
+<Callout kind="tip">
+  Found a bug or have feedback? Submit an issue on our GitHub repository or contact support@starmedicalwellness.com.
+</Callout>

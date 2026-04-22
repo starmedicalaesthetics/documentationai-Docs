@@ -1,0 +1,149 @@
+---
+title: Core Features and Use Cases
+description: Explore the main capabilities of Star Medical Wellness, including tools for weight management, lab tracking, hormone balancing, and aesthetic planning.
+---
+
+## Overview
+
+Star Medical Wellness provides integrative tools for root-cause medicine, focusing on weight loss, lab analysis, hormone therapy, and aesthetics. You can track progress, upload data, generate reports, and schedule treatments through an intuitive dashboard at `https://dashboard.example.com`.
+
+Use these core features to manage patient wellness comprehensively. Start with weight management for personalized meal plans, then integrate lab results for data-driven insights.
+
+<Columns cols={2}>
+  <Card title="Weight Loss Tracking" icon="zap" href="/features/weight-loss">
+    Monitor programs with meal planning and progress logs.
+  </Card>
+  <Card title="Lab Analysis" icon="database" href="/features/labs">
+    Upload and analyze bloodwork for actionable insights.
+  </Card>
+  <Card title="Hormone Monitoring" icon="activity" href="/features/hormones">
+    Track therapy with automated reports and alerts.
+  </Card>
+  <Card title="Aesthetics Planning" icon="calendar" href="/features/aesthetics">
+    Schedule treatments and log outcomes visually.
+  </Card>
+</Columns>
+
+## Weight Loss Program Tracking
+
+Set up personalized weight loss programs with meal planning and daily tracking. You assign goals, generate plans, and monitor adherence.
+
+<Steps>
+  <Step title="Create Program" icon="plus">
+    Navigate to the Programs tab and select `New Weight Loss Program`.
+
+    Enter patient details like starting weight and target BMI.
+  </Step>
+  <Step title="Generate Meal Plan" icon="utensils">
+    Choose dietary preferences. The system auto-generates a 4-week plan.
+
+````json
+{
+  "week1": {
+    "breakfast": "Oatmeal with berries",
+    "lunch": "Grilled chicken salad",
+    "calories": 1800
+  }
+}
+````
+  </Step>
+  <Step title="Track Progress" icon="trending-up">
+    Log daily weights and meals. View charts for adherence.
+  </Step>
+</Steps>
+
+<Callout kind="tip">
+  Integrate with wearables via `https://api.example.com/integrations` for automatic data sync.
+</Callout>
+
+## Lab Result Uploading and Analysis
+
+Upload lab results securely and get AI-powered analysis. Supports PDF, CSV, and API uploads.
+
+<Tabs>
+  <Tab title="Web Upload" icon="upload">
+    Drag files to the Labs dashboard. Analysis completes in `<60s`.
+
+    | Lab Type     | Supported Formats |
+    |--------------|-------------------|
+    | Bloodwork    | PDF, CSV         |
+    | Hormones     | JSON, XLSX       |
+    | Lipids       | All              |
+  </Tab>
+  <Tab title="API Integration" icon="code">
+    Use the Labs API for bulk uploads.
+
+<CodeGroup tabs="JavaScript,Python">
+```javascript
+const formData = new FormData();
+formData.append('file', labFile);
+formData.append('patientId', 'patient-123');
+
+await fetch('https://api.example.com/v1/labs/upload', {
+  method: 'POST',
+  headers: { 'Authorization': `Bearer ${YOUR_API_KEY}` },
+  body: formData
+});
+```
+```python
+import requests
+
+files = {'file': open('labs.csv', 'rb')}
+data = {'patientId': 'patient-123'}
+
+response = requests.post(
+    'https://api.example.com/v1/labs/upload',
+    headers={'Authorization': f'Bearer {YOUR_API_KEY}'},
+    files=files,
+    data=data
+)
+```
+</CodeGroup>
+  </Tab>
+</Tabs>
+
+## Hormone Therapy Monitoring
+
+Monitor hormone levels with scheduled tests and reports. Set thresholds for alerts.
+
+<ParamField path="patientId" param-type="string" required="true">
+  Unique patient identifier.
+</ParamField>
+
+<ParamField query="threshold" param-type="number" required="false">
+  Alert if levels exceed this value (default: `300`).
+</ParamField>
+
+Generate weekly PDF reports via the dashboard.
+
+## Aesthetic Treatment Scheduling
+
+Plan and log aesthetic procedures like Botox or fillers. Track before/after photos and outcomes.
+
+<Expandable title="Advanced Scheduling Workflow" default-open="false">
+
+  1. Select treatment type.
+  2. Schedule sessions.
+  3. Upload progress photos.
+  4. Review recovery logs.
+
+  Use webhooks for reminders:
+
+````javascript
+// Webhook payload example
+{
+  "event": "treatment_reminder",
+  "patientId": "patient-123",
+  "nextSession": "2024-12-01"
+}
+````
+
+</Expandable>
+
+<Callout kind="info">
+  All features comply with HIPAA standards. Contact support for custom integrations.
+</Callout>
+
+## Next Steps
+
+Explore [Quickstart](/quickstart) for setup, or dive into [Authentication](/authentication) for secure access. Customize these tools for your wellness practice.
